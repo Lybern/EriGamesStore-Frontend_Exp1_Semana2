@@ -813,3 +813,9 @@ footer ul li a[target="_blank"]:hover {
         padding: 2.5rem 1rem 1.5rem 1rem;
     }
 }
+
+/* Margen de desplazamiento para navegación fija y anclas suaves */
+header#inicio,
+section {
+    scroll-margin-top: 90px;
+}
