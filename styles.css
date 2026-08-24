@@ -394,6 +394,8 @@ section h2 + p {
     line-height: 1.6;
     margin-bottom: 1.5rem;
     flex-grow: 1;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Caja de Precio */
