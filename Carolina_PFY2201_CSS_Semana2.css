@@ -17,35 +17,34 @@
    -------------------------------------------------------------------------- */
 :root {
     /* Paleta de Colores de Fondo y Superficie */
-    --bg-main: #0a0e17;            /* Fondo principal oscuro profundo */
-    --bg-surface: #111827;         /* Fondo de cabecera y secciones */
-    --bg-card: #182234;            /* Fondo de tarjetas de producto y módulos */
-    --bg-card-hover: #1e2c42;      /* Fondo interactivo al pasar el cursor */
-    --bg-glass: rgba(18, 24, 38, 0.94); /* Fondo con efecto translúcido */
+    --bg-main: #0b1329;            /* Fondo principal azul noche */
+    --bg-surface: #1e293b;         /* Fondo de cabecera y secciones */
+    --bg-card: #162235;            /* Fondo de tarjetas de producto y módulos */
+    --bg-card-hover: #1e2d44;      /* Fondo interactivo al pasar el cursor */
+    --bg-glass: rgba(15, 23, 42, 0.95); /* Fondo con efecto translúcido */
 
-    /* Paleta de Colores de Acento Neón Gamer */
-    --accent-cyan: #00f0ff;        /* Cyan Neón / Acción principal */
+    /* Paleta de Colores de Acento */
+    --accent-blue: #3b82f6;        /* Azul brillante estilo profesor */
+    --accent-blue-active: #2563eb; /* Azul botón activo */
+    --accent-cyan: #00f0ff;        /* Cyan Neón gamer */
     --accent-cyan-glow: rgba(0, 240, 255, 0.25);
-    --accent-purple: #a855f7;      /* Morado gamer secundario */
-    --accent-purple-glow: rgba(168, 85, 247, 0.25);
+    --accent-purple: #a855f7;      /* Morado gamer */
     --accent-green: #10b981;       /* Verde victoria / Precios */
-    --accent-gold: #f59e0b;        /* Dorado legendario / Destacados */
-    --accent-red: #ef4444;         /* Rojo gamer */
+    --accent-gold: #f59e0b;        /* Dorado gamer */
 
     /* Paleta Tipográfica y Colores de Texto */
     --text-primary: #f8fafc;       /* Blanco brillante de alto contraste */
-    --text-secondary: #cbd5e1;     /* Gris perla para textos informativos */
+    --text-secondary: #cbd5e1;     /* Gris perla para lectura */
     --text-muted: #94a3b8;         /* Gris atenuado para metadatos */
 
     /* Bordes y Sombras */
     --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-accent: rgba(0, 240, 255, 0.4);
-    --radius-sm: 8px;
-    --radius-md: 14px;
-    --radius-lg: 20px;
+    --border-accent: rgba(59, 130, 246, 0.4);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
     --radius-full: 9999px;
     --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
-    --shadow-glow: 0 0 20px var(--accent-cyan-glow);
 
     /* Fuentes */
     --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -62,13 +61,13 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;        /* Modelo de cajas: padding y border dentro del ancho */
-    margin: 0;                     /* Elimina márgenes por defecto */
-    padding: 0;                    /* Elimina rellenos por defecto */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;       /* Desplazamiento suave para enlaces ancla */
+    scroll-behavior: smooth;
     font-size: 16px;
     width: 100%;
     overflow-x: hidden;
@@ -87,28 +86,31 @@ body {
     overflow-x: hidden;
 }
 
-/* Manejo responsivo universal de imágenes */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* Resaltado de selección de texto personalizado */
-::selection {
-    background-color: var(--accent-cyan);
-    color: var(--bg-main);
+/* Margen de desplazamiento para navegación fija y anclas suaves */
+header#inicio,
+section {
+    scroll-margin-top: 90px;
 }
 
-/* Enlaces globales */
+::selection {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+}
+
 a {
-    color: var(--accent-cyan);
+    color: var(--accent-blue);
     text-decoration: none;
     transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 a:focus-visible {
-    outline: 2px solid var(--accent-cyan);
+    outline: 2px solid var(--accent-blue);
     outline-offset: 3px;
 }
 
@@ -120,8 +122,8 @@ a:focus-visible {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 main {
@@ -141,22 +143,12 @@ section {
    5. CABECERA DEL SITIO (HEADER) - PASO 2
    -------------------------------------------------------------------------- */
 header#inicio {
-    background: linear-gradient(180deg, #111827 0%, #0d131f 100%);
-    border-bottom: 2px solid var(--border-subtle);
-    padding: 2.5rem 1.25rem 2rem 1.25rem;
+    background-color: var(--bg-surface);
+    border-bottom: 2px solid var(--accent-blue);
+    padding: 2.5rem 1.5rem 2rem 1.5rem;
     position: relative;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     width: 100%;
-}
-
-header#inicio::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, var(--accent-cyan) 30%, var(--accent-purple) 70%, transparent 100%);
 }
 
 .header-container {
@@ -174,8 +166,8 @@ header#inicio::after {
     height: 90px;
     flex-shrink: 0;
     border-radius: var(--radius-md);
-    border: 2px solid var(--accent-cyan);
-    box-shadow: 0 0 15px var(--accent-cyan-glow);
+    border: 2px solid var(--accent-blue);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
     object-fit: cover;
     transition: transform var(--transition-normal);
 }
@@ -194,9 +186,6 @@ header#inicio::after {
     font-weight: 800;
     letter-spacing: -0.5px;
     color: var(--text-primary);
-    background: linear-gradient(90deg, #ffffff 20%, var(--accent-cyan) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     margin-bottom: 0.35rem;
 }
 
@@ -209,7 +198,7 @@ header#inicio::after {
 }
 
 /* --------------------------------------------------------------------------
-   6. MENÚ DE NAVEGACIÓN PRINCIPAL (NAV) - PASO 3
+   6. MENÚ DE NAVEGACIÓN PRINCIPAL (NAV) - ESTILO PASTILLAS
    -------------------------------------------------------------------------- */
 nav {
     background-color: var(--bg-glass);
@@ -229,264 +218,209 @@ nav ul {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    padding: 0.85rem 1.25rem;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 nav ul li a {
     display: inline-block;
-    padding: 0.65rem 1.35rem;
+    padding: 0.55rem 1.25rem;
     color: var(--text-secondary);
     font-family: var(--font-heading);
     font-size: 0.95rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     border-radius: var(--radius-sm);
-    border: 1px solid transparent;
-    transition: all var(--transition-normal);
+    transition: all var(--transition-fast);
     position: relative;
     text-align: center;
 }
 
-/* Pseudo-clase :hover para navegación */
+/* Botón Activo estilo pastilla del profesor */
+nav ul li a.nav-active,
 nav ul li a:hover {
-    color: var(--accent-cyan);
-    background-color: rgba(0, 240, 255, 0.08);
-    border-color: rgba(0, 240, 255, 0.3);
-    transform: translateY(-2px);
-}
-
-/* Pseudo-clase :active */
-nav ul li a:active {
-    transform: translateY(0);
+    background-color: var(--accent-blue-active);
+    color: #ffffff;
 }
 
 /* --------------------------------------------------------------------------
-   7. ENCABEZADOS Y TÍTULOS DE SECCIÓN
+   7. ENCABEZADOS DE SECCIÓN - BARRA VERTICAL AZUL (ESTILO PROFESOR)
    -------------------------------------------------------------------------- */
 .section-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
+    text-align: left;
+    margin-bottom: 2rem;
     width: 100%;
 }
 
 section h2 {
     font-family: var(--font-heading);
-    font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+    font-size: clamp(1.5rem, 3.5vw, 1.9rem);
     font-weight: 700;
     color: var(--text-primary);
-    position: relative;
-    display: inline-block;
-    padding-bottom: 0.75rem;
+    border-left: 4px solid var(--accent-blue); /* Barra vertical azul estilo profesor */
+    padding-left: 14px;
     margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
 }
 
-/* Pseudo-elemento decorativo para subtítulos de sección */
-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-    border-radius: var(--radius-full);
-}
-
-/* Selector adyacente para el párrafo que sigue a un h2 */
 section h2 + p {
     color: var(--text-muted);
-    font-size: clamp(0.95rem, 2vw, 1.05rem);
-    max-width: 700px;
-    margin: 0.5rem auto 0 auto;
-    text-align: center;
+    font-size: 1rem;
+    max-width: 800px;
+    margin-left: 18px;
+    margin-bottom: 1.5rem;
     line-height: 1.6;
 }
 
 /* --------------------------------------------------------------------------
-   8. SECCIÓN DE PRODUCTOS DESTACADOS (#productos) - PASO 2 Y 4
+   8. SECCIÓN DE PRODUCTOS DESTACADOS (#productos) - TARJETAS CON IMAGEN
    -------------------------------------------------------------------------- */
 #productos ul.products-grid {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
+    gap: 1.75rem;
     padding: 0;
     width: 100%;
 }
 
-/* Tarjeta individual de producto (Article dentro de Li) */
 .product-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
-    padding: 1.75rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     box-shadow: var(--shadow-card);
-    transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-normal);
-    position: relative;
+    transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
     overflow: hidden;
 }
 
-/* Borde superior decorativo con efecto gradiente */
-.product-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-    opacity: 0.6;
-    transition: opacity var(--transition-normal);
-}
-
-/* Pseudo-clase :hover para tarjetas de producto */
 .product-card:hover {
-    transform: translateY(-8px);
-    background-color: var(--bg-card-hover);
-    border-color: var(--border-accent);
-    box-shadow: 0 16px 30px -10px rgba(0, 240, 255, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+    transform: translateY(-6px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.7);
 }
 
-.product-card:hover::before {
-    opacity: 1;
+/* Imagen de portada en la parte superior */
+.product-img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: transform var(--transition-normal);
 }
 
-/* Título de producto */
+.product-card:hover .product-img {
+    transform: scale(1.03);
+}
+
+.product-body {
+    padding: 1.35rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
 .product-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--text-primary);
     line-height: 1.35;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.65rem;
 }
 
-/* Etiquetas y género */
 .product-genre {
     display: inline-block;
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-sm);
-    padding: 0.35rem 0.65rem;
-    font-size: 0.85rem;
-    color: var(--accent-cyan);
-    margin-bottom: 1rem;
-    word-break: break-word;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    color: var(--accent-blue);
+    margin-bottom: 0.85rem;
 }
 
 .product-genre strong {
     color: var(--text-primary);
-    font-weight: 600;
 }
 
-/* Sinopsis del videojuego */
+/* Sinopsis con texto estilizado en blanco */
 .product-desc {
     color: #ffffff;
     font-weight: 400;
-    font-size: 0.95rem;
-    line-height: 1.65;
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
     flex-grow: 1;
     text-align: justify;
     text-justify: inter-word;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
-/* Caja de Precio */
 .product-price-box {
     margin-top: auto;
-    padding-top: 1rem;
+    padding-top: 0.85rem;
     border-top: 1px dashed var(--border-subtle);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .product-price {
     font-family: var(--font-heading);
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: var(--accent-green);
 }
 
 .product-price strong {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     font-weight: 500;
     display: block;
 }
 
-/* Botón de compra / Reserva */
 .btn-buy {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 0.85rem 1.25rem;
-    background: linear-gradient(135deg, #00c2ff 0%, #0077ff 100%);
+    padding: 0.75rem 1.25rem;
+    background-color: var(--accent-blue-active);
     color: #ffffff;
     font-family: var(--font-heading);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     border-radius: var(--radius-sm);
     border: none;
-    box-shadow: 0 4px 15px rgba(0, 194, 255, 0.3);
-    transition: all var(--transition-normal);
+    transition: all var(--transition-fast);
     text-align: center;
     cursor: pointer;
 }
 
 .btn-buy:hover {
+    background-color: #1d4ed8;
     color: #ffffff;
-    background: linear-gradient(135deg, #00f0ff 0%, #0099ff 100%);
-    box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
     transform: translateY(-2px);
-}
-
-.btn-buy:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(0, 194, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 
 /* --------------------------------------------------------------------------
-   9. SELECTORES AVANZADOS Y PSEUDO-CLASES (:nth-child) - PASO 4
-   -------------------------------------------------------------------------- */
-/* Personalización de bordes superiores individuales con :nth-child() */
-#productos ul.products-grid > li:nth-child(1) .product-card::before {
-    background: linear-gradient(90deg, #10b981, #00f0ff); /* Zelda: Verde esmeralda y Cyan */
-}
-
-#productos ul.products-grid > li:nth-child(2) .product-card::before {
-    background: linear-gradient(90deg, #f59e0b, #ef4444); /* Cyberpunk: Amarillo y Rojo Neón */
-}
-
-#productos ul.products-grid > li:nth-child(3) .product-card::before {
-    background: linear-gradient(90deg, #ef4444, #3b82f6); /* Mario: Rojo y Azul */
-}
-
-#productos ul.products-grid > li:nth-child(4) .product-card::before {
-    background: linear-gradient(90deg, #10b981, #3b82f6); /* FC 24: Verde cancha y Azul */
-}
-
-/* --------------------------------------------------------------------------
-   10. SECCIÓN DE CATEGORÍAS (#categorias) - PASO 2 Y 4
+   9. SECCIÓN DE CATEGORÍAS (#categorias)
    -------------------------------------------------------------------------- */
 #categorias {
-    background-color: #0e1524;
+    background-color: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    padding: 3rem 2rem;
+    border-radius: var(--radius-md);
+    padding: 2.5rem 2rem;
     box-shadow: var(--shadow-card);
     width: 100%;
 }
@@ -497,20 +431,18 @@ section h2 + p {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
     padding: 0;
-    margin-top: 1.5rem;
     width: 100%;
 }
 
 #categorias ul li {
-    background-color: var(--bg-card);
+    background-color: var(--bg-surface);
     border: 1px solid var(--border-subtle);
-    border-left: 4px solid var(--accent-cyan);
+    border-left: 4px solid var(--accent-blue);
     border-radius: var(--radius-sm);
-    padding: 1.25rem 1.5rem;
-    transition: all var(--transition-normal);
+    padding: 1.15rem 1.35rem;
+    transition: all var(--transition-fast);
 }
 
-/* Pseudo-clase :nth-child(even) y :nth-child(odd) para alternancia de color */
 #categorias ul li:nth-child(even) {
     border-left-color: var(--accent-purple);
 }
@@ -524,28 +456,27 @@ section h2 + p {
 }
 
 #categorias ul li:hover {
-    transform: translateX(6px);
+    transform: translateX(4px);
     background-color: var(--bg-card-hover);
     border-color: var(--border-accent);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 #categorias ul li strong {
     font-family: var(--font-heading);
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--text-primary);
     display: block;
     margin-bottom: 0.35rem;
 }
 
 /* --------------------------------------------------------------------------
-   11. SECCIÓN DE CONTACTO (#contacto) - PASO 2 Y 4
+   10. SECCIÓN DE CONTACTO (#contacto)
    -------------------------------------------------------------------------- */
 #contacto {
-    background: linear-gradient(180deg, #111827 0%, #162032 100%);
+    background-color: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    padding: 3rem 2rem;
+    border-radius: var(--radius-md);
+    padding: 2.5rem 2rem;
     box-shadow: var(--shadow-card);
     width: 100%;
 }
@@ -554,64 +485,51 @@ section h2 + p {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
+    gap: 1.25rem;
     padding: 0;
-    margin-top: 1.5rem;
     width: 100%;
 }
 
 #contacto ul li {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: var(--bg-surface);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    transition: transform var(--transition-normal), border-color var(--transition-normal);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    transition: transform var(--transition-fast);
 }
 
 #contacto ul li:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0, 240, 255, 0.3);
-    background-color: rgba(255, 255, 255, 0.06);
+    transform: translateY(-3px);
+    border-color: var(--accent-blue);
 }
 
 #contacto ul li strong {
     font-family: var(--font-heading);
-    font-size: 0.95rem;
-    color: var(--accent-cyan);
+    font-size: 0.9rem;
+    color: var(--accent-blue);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
-/* Selectores de atributo para enlaces de teléfono y correo */
 a[href^="tel:"] {
     color: var(--accent-green);
     font-weight: 600;
 }
 
-a[href^="tel:"]:hover {
-    color: #34d399;
-    text-decoration: underline;
-}
-
 a[href^="mailto:"] {
-    color: var(--accent-cyan);
+    color: var(--accent-blue);
     font-weight: 600;
 }
 
-a[href^="mailto:"]:hover {
-    color: #67e8f9;
-    text-decoration: underline;
-}
-
 /* --------------------------------------------------------------------------
-   12. PIE DE PÁGINA (FOOTER) - PASO 5
+   11. PIE DE PÁGINA (FOOTER)
    -------------------------------------------------------------------------- */
 footer {
-    background-color: #070a10;
+    background-color: #070e1c;
     border-top: 2px solid var(--border-subtle);
-    padding: 3.5rem 1.25rem 2rem 1.25rem;
+    padding: 3rem 1.5rem 2rem 1.5rem;
     color: var(--text-muted);
     margin-top: auto;
     width: 100%;
@@ -622,63 +540,59 @@ footer {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
     align-items: start;
-    padding-bottom: 2.5rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid var(--border-subtle);
     width: 100%;
 }
 
 footer h3 {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
 footer p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
     line-height: 1.6;
 }
 
-/* Redes Sociales */
 footer ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.85rem;
+    gap: 0.75rem;
     padding: 0;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
 }
 
-/* Selectores de atributo para enlaces externos de redes sociales */
 footer ul li a[target="_blank"] {
     display: inline-block;
-    padding: 0.5rem 1.15rem;
-    background-color: var(--bg-card);
+    padding: 0.45rem 1rem;
+    background-color: var(--bg-surface);
     color: var(--text-secondary);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-sm);
     font-family: var(--font-heading);
     font-size: 0.85rem;
     font-weight: 600;
-    transition: all var(--transition-normal);
+    transition: all var(--transition-fast);
 }
 
 footer ul li a[target="_blank"]:hover {
     color: #ffffff;
-    background-color: var(--accent-purple);
-    border-color: var(--accent-purple);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px var(--accent-purple-glow);
+    background-color: var(--accent-blue-active);
+    border-color: var(--accent-blue-active);
+    transform: translateY(-2px);
 }
 
-/* Créditos finales de Duoc UC */
 .footer-credits {
     max-width: 1200px;
-    margin: 2rem auto 0 auto;
+    margin: 1.5rem auto 0 auto;
     text-align: center;
     font-size: 0.85rem;
     color: #64748b;
@@ -686,7 +600,7 @@ footer ul li a[target="_blank"]:hover {
 }
 
 .footer-credits p {
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.25rem;
 }
 
 .footer-credits em {
@@ -696,31 +610,18 @@ footer ul li a[target="_blank"]:hover {
 }
 
 /* --------------------------------------------------------------------------
-   13. DISEÑO RESPONSIVO AVANZADO (MEDIA QUERIES)
-   Adaptación completa para Tablets, Móviles y Pantallas Pequeñas
+   12. DISEÑO RESPONSIVO (MEDIA QUERIES)
    -------------------------------------------------------------------------- */
-
-/* Breakpoint 1: Tablets y Laptops Pequeñas (≤ 992px) */
 @media (max-width: 992px) {
-    .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
     #productos ul.products-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-
-    .footer-content {
-        gap: 2rem;
+        gap: 1.25rem;
     }
 }
 
-/* Breakpoint 2: Tablets Verticales y Móviles Grandes (≤ 768px) */
 @media (max-width: 768px) {
     header#inicio {
-        padding: 2rem 1rem 1.75rem 1rem;
+        padding: 2rem 1rem 1.5rem 1rem;
     }
 
     .header-container {
@@ -734,8 +635,7 @@ footer ul li a[target="_blank"]:hover {
     }
 
     nav ul {
-        gap: 0.5rem;
-        padding: 0.65rem 0.75rem;
+        gap: 0.4rem;
     }
 
     nav ul li {
@@ -743,31 +643,24 @@ footer ul li a[target="_blank"]:hover {
     }
 
     nav ul li a {
-        display: block;
         width: 100%;
-        padding: 0.6rem 0.5rem;
+        padding: 0.55rem 0.5rem;
         font-size: 0.9rem;
-    }
-
-    section {
-        margin-bottom: 3.5rem;
     }
 
     #categorias,
     #contacto {
-        padding: 2.25rem 1.25rem;
-        border-radius: var(--radius-md);
+        padding: 2rem 1.25rem;
     }
 
     #categorias ul,
     #contacto ul {
         grid-template-columns: 1fr;
-        gap: 1rem;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
         text-align: center;
     }
 
@@ -776,48 +669,16 @@ footer ul li a[target="_blank"]:hover {
     }
 }
 
-/* Breakpoint 3: Smartphones Estándar (≤ 540px) */
 @media (max-width: 540px) {
-    header#inicio {
-        padding: 1.5rem 0.75rem;
-    }
-
-    .header-logo {
-        width: 75px;
-        height: 75px;
+    #productos ul.products-grid {
+        grid-template-columns: 1fr;
     }
 
     nav ul li {
-        flex: 1 1 100%; /* Menú full width en móviles */
+        flex: 1 1 100%;
     }
 
-    #productos ul.products-grid {
-        grid-template-columns: 1fr; /* Una sola tarjeta por fila */
-        gap: 1.25rem;
+    section h2 + p {
+        margin-left: 0;
     }
-
-    .product-card {
-        padding: 1.35rem;
-    }
-
-    .product-price-box {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.35rem;
-    }
-
-    #categorias,
-    #contacto {
-        padding: 1.75rem 1rem;
-    }
-
-    footer {
-        padding: 2.5rem 1rem 1.5rem 1rem;
-    }
-}
-
-/* Margen de desplazamiento para navegación fija y anclas suaves */
-header#inicio,
-section {
-    scroll-margin-top: 90px;
 }
