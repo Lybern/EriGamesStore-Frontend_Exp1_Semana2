@@ -389,7 +389,8 @@ section h2 + p {
 
 /* Sinopsis del videojuego */
 .product-desc {
-    color: var(--text-secondary);
+    color: #ffffff;
+    font-weight: 600;
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
