@@ -21,7 +21,7 @@
     --bg-surface: #111827;         /* Fondo de cabecera y secciones */
     --bg-card: #182234;            /* Fondo de tarjetas de producto y módulos */
     --bg-card-hover: #1e2c42;      /* Fondo interactivo al pasar el cursor */
-    --bg-glass: rgba(18, 24, 38, 0.88); /* Fondo con efecto translúcido */
+    --bg-glass: rgba(18, 24, 38, 0.94); /* Fondo con efecto translúcido */
 
     /* Paleta de Colores de Acento Neón Gamer */
     --accent-cyan: #00f0ff;        /* Cyan Neón / Acción principal */
@@ -70,6 +70,8 @@
 html {
     scroll-behavior: smooth;       /* Desplazamiento suave para enlaces ancla */
     font-size: 16px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -79,9 +81,17 @@ body {
     font-size: 1rem;
     line-height: 1.65;
     min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+}
+
+/* Manejo responsivo universal de imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Resaltado de selección de texto personalizado */
@@ -110,19 +120,21 @@ a:focus-visible {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
 }
 
 main {
     flex: 1;
     padding-top: 2.5rem;
     padding-bottom: 4rem;
+    width: 100%;
 }
 
 section {
     margin-bottom: 4.5rem;
     position: relative;
+    width: 100%;
 }
 
 /* --------------------------------------------------------------------------
@@ -131,9 +143,10 @@ section {
 header#inicio {
     background: linear-gradient(180deg, #111827 0%, #0d131f 100%);
     border-bottom: 2px solid var(--border-subtle);
-    padding: 2.5rem 1.5rem 2rem 1.5rem;
+    padding: 2.5rem 1.25rem 2rem 1.25rem;
     position: relative;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    width: 100%;
 }
 
 header#inicio::after {
@@ -153,11 +166,13 @@ header#inicio::after {
     gap: 1.75rem;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .header-logo {
     width: 90px;
     height: 90px;
+    flex-shrink: 0;
     border-radius: var(--radius-md);
     border: 2px solid var(--accent-cyan);
     box-shadow: 0 0 15px var(--accent-cyan-glow);
@@ -175,7 +190,7 @@ header#inicio::after {
 
 .header-text h1 {
     font-family: var(--font-heading);
-    font-size: 2.4rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 800;
     letter-spacing: -0.5px;
     color: var(--text-primary);
@@ -187,9 +202,10 @@ header#inicio::after {
 
 .header-text p {
     color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
     max-width: 680px;
     font-weight: 500;
+    line-height: 1.5;
 }
 
 /* --------------------------------------------------------------------------
@@ -204,6 +220,7 @@ nav {
     top: 0;
     z-index: 1000;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 100%;
 }
 
 nav ul {
@@ -213,7 +230,7 @@ nav ul {
     align-items: center;
     flex-wrap: wrap;
     gap: 0.75rem;
-    padding: 0.85rem 1.5rem;
+    padding: 0.85rem 1.25rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -230,6 +247,7 @@ nav ul li a {
     border: 1px solid transparent;
     transition: all var(--transition-normal);
     position: relative;
+    text-align: center;
 }
 
 /* Pseudo-clase :hover para navegación */
@@ -251,11 +269,12 @@ nav ul li a:active {
 .section-header {
     text-align: center;
     margin-bottom: 2.5rem;
+    width: 100%;
 }
 
 section h2 {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 3.5vw, 2.1rem);
     font-weight: 700;
     color: var(--text-primary);
     position: relative;
@@ -280,10 +299,11 @@ section h2::after {
 /* Selector adyacente para el párrafo que sigue a un h2 */
 section h2 + p {
     color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
     max-width: 700px;
     margin: 0.5rem auto 0 auto;
     text-align: center;
+    line-height: 1.6;
 }
 
 /* --------------------------------------------------------------------------
@@ -295,6 +315,7 @@ section h2 + p {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     padding: 0;
+    width: 100%;
 }
 
 /* Tarjeta individual de producto (Article dentro de Li) */
@@ -341,7 +362,7 @@ section h2 + p {
 /* Título de producto */
 .product-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
     line-height: 1.35;
@@ -358,6 +379,7 @@ section h2 + p {
     font-size: 0.85rem;
     color: var(--accent-cyan);
     margin-bottom: 1rem;
+    word-break: break-word;
 }
 
 .product-genre strong {
@@ -418,6 +440,7 @@ section h2 + p {
     box-shadow: 0 4px 15px rgba(0, 194, 255, 0.3);
     transition: all var(--transition-normal);
     text-align: center;
+    cursor: pointer;
 }
 
 .btn-buy:hover {
@@ -461,15 +484,17 @@ section h2 + p {
     border-radius: var(--radius-lg);
     padding: 3rem 2rem;
     box-shadow: var(--shadow-card);
+    width: 100%;
 }
 
 #categorias ul {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
     padding: 0;
     margin-top: 1.5rem;
+    width: 100%;
 }
 
 #categorias ul li {
@@ -518,15 +543,17 @@ section h2 + p {
     border-radius: var(--radius-lg);
     padding: 3rem 2rem;
     box-shadow: var(--shadow-card);
+    width: 100%;
 }
 
 #contacto ul {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
     padding: 0;
     margin-top: 1.5rem;
+    width: 100%;
 }
 
 #contacto ul li {
@@ -580,9 +607,10 @@ a[href^="mailto:"]:hover {
 footer {
     background-color: #070a10;
     border-top: 2px solid var(--border-subtle);
-    padding: 3.5rem 1.5rem 2rem 1.5rem;
+    padding: 3.5rem 1.25rem 2rem 1.25rem;
     color: var(--text-muted);
     margin-top: auto;
+    width: 100%;
 }
 
 .footer-content {
@@ -594,6 +622,7 @@ footer {
     align-items: start;
     padding-bottom: 2.5rem;
     border-bottom: 1px solid var(--border-subtle);
+    width: 100%;
 }
 
 footer h3 {
@@ -649,6 +678,7 @@ footer ul li a[target="_blank"]:hover {
     text-align: center;
     font-size: 0.85rem;
     color: #64748b;
+    width: 100%;
 }
 
 .footer-credits p {
@@ -662,9 +692,33 @@ footer ul li a[target="_blank"]:hover {
 }
 
 /* --------------------------------------------------------------------------
-   13. DISEÑO RESPONSIVO (MEDIA QUERIES)
+   13. DISEÑO RESPONSIVO AVANZADO (MEDIA QUERIES)
+   Adaptación completa para Tablets, Móviles y Pantallas Pequeñas
    -------------------------------------------------------------------------- */
-@media (max-width: 850px) {
+
+/* Breakpoint 1: Tablets y Laptops Pequeñas (≤ 992px) */
+@media (max-width: 992px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    #productos ul.products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .footer-content {
+        gap: 2rem;
+    }
+}
+
+/* Breakpoint 2: Tablets Verticales y Móviles Grandes (≤ 768px) */
+@media (max-width: 768px) {
+    header#inicio {
+        padding: 2rem 1rem 1.75rem 1rem;
+    }
+
     .header-container {
         flex-direction: column;
         text-align: center;
@@ -675,8 +729,36 @@ footer ul li a[target="_blank"]:hover {
         text-align: center;
     }
 
-    .header-text h1 {
-        font-size: 2rem;
+    nav ul {
+        gap: 0.5rem;
+        padding: 0.65rem 0.75rem;
+    }
+
+    nav ul li {
+        flex: 1 1 calc(50% - 0.5rem);
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 0.6rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    section {
+        margin-bottom: 3.5rem;
+    }
+
+    #categorias,
+    #contacto {
+        padding: 2.25rem 1.25rem;
+        border-radius: var(--radius-md);
+    }
+
+    #categorias ul,
+    #contacto ul {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .footer-content {
@@ -690,23 +772,42 @@ footer ul li a[target="_blank"]:hover {
     }
 }
 
-@media (max-width: 600px) {
-    nav ul {
-        gap: 0.4rem;
-        padding: 0.5rem 0.75rem;
+/* Breakpoint 3: Smartphones Estándar (≤ 540px) */
+@media (max-width: 540px) {
+    header#inicio {
+        padding: 1.5rem 0.75rem;
     }
 
-    nav ul li a {
-        padding: 0.45rem 0.85rem;
-        font-size: 0.85rem;
+    .header-logo {
+        width: 75px;
+        height: 75px;
     }
 
-    section h2 {
-        font-size: 1.6rem;
+    nav ul li {
+        flex: 1 1 100%; /* Menú full width en móviles */
+    }
+
+    #productos ul.products-grid {
+        grid-template-columns: 1fr; /* Una sola tarjeta por fila */
+        gap: 1.25rem;
+    }
+
+    .product-card {
+        padding: 1.35rem;
+    }
+
+    .product-price-box {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
     }
 
     #categorias,
     #contacto {
-        padding: 2rem 1.25rem;
+        padding: 1.75rem 1rem;
+    }
+
+    footer {
+        padding: 2.5rem 1rem 1.5rem 1rem;
     }
 }
