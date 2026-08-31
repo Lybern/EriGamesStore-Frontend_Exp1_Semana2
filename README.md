@@ -77,8 +77,14 @@ Durante esta **Semana 3**, el sitio fue profundamente optimizado aplicando:
 EriGamesStore-Frontend_Exp1_Semana2/
 ├── Carolina_PFY2201_CSS_Semana3.css      # Hoja de estilos con nomenclatura de entrega AVA
 ├── Carolina_PFY2201_HTML_Semana3.html    # Archivo HTML con nomenclatura de entrega AVA
-├── img/
-│   └── erigames-logo.jpg                 # Logotipo oficial de la tienda
+├── img/                                  # Imágenes stock locales y recursos gráficos
+│   ├── cyberpunk-2077.jpg                # Portada stock Cyberpunk 2077 Phantom Liberty
+│   ├── erigames-logo.jpg                 # Logotipo oficial de EriGamesStore
+│   ├── fc24.jpg                          # Portada stock EA Sports FC 24
+│   ├── ffvii-rebirth.jpg                 # Portada stock Final Fantasy VII Rebirth
+│   ├── mario-wonder.jpg                  # Portada stock Super Mario Bros. Wonder
+│   ├── resident-evil-4.jpg               # Portada stock Resident Evil 4 Remake
+│   └── zelda-totk.jpg                    # Portada stock The Legend of Zelda: Tears of the Kingdom
 ├── index.html                            # Documento principal para GitHub Pages
 ├── README.md                             # Documentación completa y verificación de pauta
 ├── screenshots/                          # Capturas de pantalla para escritorio, tablet y móvil
